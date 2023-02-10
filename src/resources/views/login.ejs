@@ -1,0 +1,604 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        background-image: url("/assets/background_png.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .center-div {
+        padding-top: 10%;
+      }
+
+      .btn.btn-success {
+        padding: 0.4em 2em;
+      }
+
+      form {
+        padding: 0 3em;
+      }
+
+      #login .title > span {
+        font-size: 0.8em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="text-center center-div" id="login">
+      <div class="container w-25 border py-5">
+        <div class="title pb-5">
+          <h2 class="font-weight-bold">Login</h2>
+          <span>Log in for the existing user</span>
+          <div class="alter alert-success text-center"></div>
+        </div>
+        <form action="/login" method="POST" class="pt-3">
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="email"
+              name="email"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="password"
+            />
+          </div>
+          <button type="submit" class="btn btn-success rounded-pill">
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login Review Company</title>
+  <!-- Meta tag Keywords -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords"
+    content="Online Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  <link
+    href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+    rel="stylesheet" />
+  <link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&amp;subset=latin-ext"
+    rel="stylesheet" />
+  <!-- //online-fonts -->
+</head>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+
+  .txt-rt {
+    text-align: right;
+  }
+
+  /* text align right */
+  .txt-lt {
+    text-align: left;
+  }
+
+  /* text align left */
+  .txt-center {
+    text-align: center;
+  }
+
+  /* text align center */
+  .float-rt {
+    float: right;
+  }
+
+  /* float right */
+  .float-lt {
+    float: left;
+  }
+
+  /* float left */
+  .clear {
+    clear: both;
+  }
+
+  /* clear float */
+  .pos-relative {
+    position: relative;
+  }
+
+  /* Position Relative */
+  .pos-absolute {
+    position: absolute;
+  }
+
+  /* Position Absolute */
+  .vertical-base {
+    vertical-align: baseline;
+  }
+
+  /* vertical align baseline */
+  .vertical-top {
+    vertical-align: top;
+  }
+
+  /* vertical align top */
+  nav.vertical ul li {
+    display: block;
+  }
+
+  /* vertical menu */
+  nav.horizontal ul li {
+    display: inline-block;
+  }
+
+  /* horizontal menu */
+  img {
+    max-width: 100%;
+  }
+
+  /*end reset*/
+  body {
+    background: url(https://cdn.pixabay.com/photo/2020/06/18/11/27/landscape-5313115_960_720.jpg) no-repeat center top;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  /*--header--*/
+  .header-w3l {
+    padding-top: 2em;
+  }
+
+  .header-w3l h1 {
+    font-size: 3em;
+    color: white;
+    letter-spacing: 8px;
+    font-weight: 500;
+    font-family: "Dosis", sans-serif;
+    text-transform: uppercase;
+    text-shadow: 5px 3px 5px #101010;
+  }
+
+  /*--//header--*/
+
+  /*--main--*/
+  .wthree-pro h2 {
+    font-size: 1.2em;
+    color: #fff;
+    letter-spacing: 4px;
+    margin-bottom: 1.5em;
+    text-transform: uppercase;
+  }
+
+  .sub-main-w3 input[type="email"],
+  .sub-main-w3 input[type="password"] {
+    outline: none;
+    font-size: 0.9em;
+    padding: 1em 3em 1em 1em;
+    border: none;
+    margin-bottom: 0.3em;
+    background: rgba(255, 255, 255, 0.85);
+    width: 82%;
+    color: #000;
+    border-radius: 30px;
+    font-weight: 400;
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: 1px;
+  }
+
+  .sub-main-w3 {
+    width: 26%;
+    margin: 10em auto 12em;
+  }
+
+  .sub-w3l h6 a {
+    font-size: 0.9em;
+    color: #fff;
+    letter-spacing: 1px;
+    text-align: right;
+    display: inherit;
+  }
+
+  .sub-w3l {
+    margin-top: 1em;
+  }
+
+  .right-w3l {
+    margin-top: 2em;
+  }
+
+  .pom-agile {
+    position: relative;
+  }
+
+  input.pass {
+    margin-top: 0.7em;
+  }
+
+  span.icon1,
+  span.icon2 {
+    color: #03a9f4;
+    font-size: 1.1em;
+    position: absolute;
+    right: 6%;
+  }
+
+  span.icon1 {
+    top: 23%;
+  }
+
+  span.icon2 {
+    top: 34%;
+  }
+
+  .sub-main-w3 input[type="submit"] {
+    color: white;
+    background: #03a9f4;
+    border: none;
+    padding: 0.7em 0;
+    outline: none;
+    width: 44%;
+    font-size: 1em;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-weight: 400;
+    font-family: "Open Sans", sans-serif;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    border-radius: 30px;
+  }
+
+  .sub-main-w3 input[type="submit"]:hover {
+    background: #fff;
+    color: #03a9f4;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+  }
+
+  /*--//main--*/
+
+  /*--footer--*/
+  .footer p {
+    font-size: 0.9em;
+    color: white;
+    letter-spacing: 2px;
+  }
+
+  .footer p a {
+    color: #fff;
+  }
+
+  .footer p a:hover {
+    color: #ea2858;
+  }
+
+  .login__back-home {
+    width: 70px;
+    background: #03a9f4;
+    color: #fff;
+    padding: 5px 5px;
+    border-radius: 3px;
+    font-weight: bold;
+    display: block;
+    margin-right: auto;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-27px);
+  }
+
+  .login__back-home:hover {
+    background: #fff;
+    color: #03a9f4;
+    transform: translateX(0px);
+  }
+
+  /*--//footer--*/
+
+  /*--responsive--*/
+
+  @media (max-width: 1680px) {}
+
+  @media (max-width: 1600px) {}
+
+  @media (max-width: 1440px) {
+    .footer {
+      padding-bottom: 3em;
+    }
+
+    .sub-main-w3 {
+      width: 29%;
+      margin: 7em auto 9em;
+    }
+  }
+
+  @media (max-width: 1366px) {}
+
+  @media (max-width: 1280px) {}
+
+  @media (max-width: 1080px) {
+    .sub-main-w3 {
+      width: 35%;
+    }
+  }
+
+  @media (max-width: 1050px) {}
+
+  @media (max-width: 1024px) {
+    .sub-main-w3 {
+      width: 38%;
+    }
+  }
+
+  /* @media (max-width: 991px) {
+    }
+
+    @media (max-width: 900px) {
+      .header-w3l {
+        padding-top: 1.5em;
+      }
+
+      .sub-main-w3 {
+        width: 42%;
+        margin: 6em auto 8em;
+      }
+
+      .footer {
+        padding-bottom: 2.5em;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .header-w3l h1 {
+        font-size: 2.7em;
+        letter-spacing: 7px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-w3l {
+        padding-top: 4.5em;
+      }
+
+      .sub-main-w3 {
+        width: 50%;
+        margin: 10em auto 16em;
+      }
+    }
+
+    @media (max-width: 736px) {
+      .header-w3l {
+        padding-top: 1.5em;
+      }
+
+      .sub-main-w3 {
+        margin: 5em auto 6.5em;
+      }
+    }
+
+    @media (max-width: 667px) {
+      .footer {
+        padding-bottom: 2em;
+      }
+    }
+
+    @media (max-width: 640px) {
+    }
+
+    @media (max-width: 600px) {
+      .sub-main-w3 input[type="email"],
+      .sub-main-w3 input[type="password"] {
+        padding: 0.9em 3em 0.9em 1em;
+      }
+
+      .sub-main-w3 input[type="submit"] {
+        font-size: 0.95em;
+      }
+
+      .footer p {
+        letter-spacing: 1px;
+      }
+
+      .right-w3l {
+        margin-top: 1em;
+      }
+
+      .header-w3l h1 {
+        font-size: 2.5em;
+        letter-spacing: 5px;
+      }
+
+      .wthree-pro h2 {
+        font-size: 1em;
+      }
+
+      .sub-main-w3 {
+        margin: 6em auto 8em;
+        width: 54%;
+      }
+    }
+
+    @media (max-width: 568px) {
+      .sub-main-w3 {
+        width: 56%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-w3l h1 {
+        font-size: 2.3em;
+        letter-spacing: 4px;
+      }
+
+      .sub-main-w3 {
+        width: 69%;
+        margin: 6em auto 6.3em;
+      }
+
+      .footer p {
+        line-height: 1.9;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .sub-main-w3 {
+        width: 72%;
+      }
+    }
+
+    @media (max-width: 414px) {
+      .sub-main-w3 input[type="email"],
+      .sub-main-w3 input[type="password"] {
+        font-size: 0.85em;
+      }
+
+      .sub-w3l h6 a {
+        font-size: 0.8em;
+      }
+
+      .header-w3l h1 {
+        font-size: 2.1em;
+      }
+
+      .sub-main-w3 {
+        margin: 7em auto 9.3em;
+      }
+    }
+
+    @media (max-width: 384px) {
+      .sub-main-w3 input[type="email"],
+      .sub-main-w3 input[type="password"] {
+        font-size: 0.8em;
+      }
+
+      .header-w3l h1 {
+        font-size: 2em;
+      }
+
+      .sub-main-w3 input[type="submit"] {
+        font-size: 0.9em;
+      }
+
+      .wthree-pro h2 {
+        margin-bottom: 1.2em;
+      }
+
+      .sub-main-w3 {
+        margin: 6em auto 7.5em;
+        width: 74%;
+      }
+
+      span.icon1 {
+        top: 18%;
+      }
+
+      span.icon2 {
+        top: 32%;
+      }
+    }
+
+    @media (max-width: 375px) {
+    }
+
+    @media (max-width: 320px) {
+      .header-w3l h1 {
+        font-size: 1.8em;
+        letter-spacing: 2px;
+      }
+
+      .wthree-pro h2 {
+        font-size: 0.9em;
+        letter-spacing: 2px;
+      }
+
+      .sub-main-w3 input[type="submit"] {
+        font-size: 0.8em;
+      }
+
+      .footer p {
+        font-size: 0.8em;
+      }
+
+      .sub-main-w3 {
+        margin: 4.2em auto 4.5em;
+        width: 81%;
+      }
+
+      .sub-main-w3 input[type="email"],
+      .sub-main-w3 input[type="password"] {
+        width: 80%;
+      }
+    } */
+</style>
+
+<body>
+  <!-- main -->
+  <div class="center-container">
+    <!--header-->
+    <a href="/" class="login__back-home">
+      <i class="fas fa-arrow-left"></i>
+      Home
+    </a>
+    <div class="header-w3l">
+      <h1>Login</h1>
+    </div>
+    <!--//header-->
+    <div class="main-content-agile">
+      <div class="sub-main-w3">
+        <div class="wthree-pro"></div>
+        <form action="/login" method="POST">
+          <div class="pom-agile">
+            <input placeholder="E-mail" name="email" class="user" type="email" required="" />
+            <span class="icon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+          </div>
+          <div class="pom-agile">
+            <input placeholder="password" name="password" class="pass" type="password" required="" />
+            <span class="icon2"><i class="fa fa-unlock" aria-hidden="true"></i></span>
+          </div>
+          <div class="sub-w3l">
+            <div class="right-w3l">
+              <input type="submit" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

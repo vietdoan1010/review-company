@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="shortcut icon" type=""
+    href="https://png.pngtree.com/png-clipart/20200727/original/pngtree-modern-creative-letter-w-logo-design-png-image_5322630.jpg" />
+  <%- include ('layout/head') %>
+</head>
+
+<body>
+  <%- include ('layout/header') %>
+    <div class="nav-search">
+      <div class="nav-search--opacity">
+        <div class="container">
+          <!-- Heading -->
+          <h2 class="heading">Đánh giá và Khám phá</h2>
+          <!-- Input Search -->
+          <form action="/search" method="POST">
+            <div class="search">
+              <input class="search-input" type="search" name="search" placeholder="Nhập tên công ty..." required />
+              <!-- <a href="#">
+              <div class="search-icon">
+                <ion-icon name="search-outline"></ion-icon>
+              </div>
+            </a> -->
+              <input class="header-search" type="submit" value="Tìm kiếm" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- body  -->
+    <div class="page">
+      <!-- Content -->
+      <div class="page__container">
+        <div class="row">
+          <div class="page-content">
+            <h2 class="content_heading">CÔNG TY</h2>
+            <div class="content_company">
+              <%- include ('layout/company') %>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <section class="introduce">
+        <div class="container">
+          <h3 class="introduce-heading">How it works</h3>
+
+          <div class="introduce-tutorial">
+            <div class="box">
+              <img src="https://www.reviewcompany.vn/public/media/home/img/icon_home_1.svg" alt="" />
+              <h4>Tìm kiếm công ty</h4>
+              <p>
+                Tìm kiếm thông tin về những công ty đang tuyển dụng mà bạn quan
+                tâm.
+              </p>
+            </div>
+            <div class="box">
+              <img src="https://www.reviewcompany.vn/public/media/home/img/icon_home_2.svg" alt="" />
+              <h4>Lựa chọn nhà tuyển dụng</h4>
+              <p>
+                Lựa chọn nhà tuyển dụng trong số 10607 nhà tuyển dụng có văn hóa
+                phù hợp với bạn.
+              </p>
+            </div>
+            <div class="box">
+              <img src="https://www.reviewcompany.vn/public/media/home/img/icon_home_3.svg" alt="" />
+              <h4>Theo dõi và tìm kiếm công việc</h4>
+              <p>
+                Theo dõi, chia sẽ thông tin và tìm việc ở công ty bạn quan tâm.
+              </p>
+            </div>
+            <div class="box">
+              <img src="https://www.reviewcompany.vn/public/media/home/img/icon_home_4.svg" alt="" />
+              <h4>Phỏng vấn và gia nhập</h4>
+              <p>
+                Đến lúc bạn đã sẵn sàng gia nhập công ty bạn quan tâm. Chúc bạn
+                thành công.
+              </p>
+            </div>
+          </div>
+
+          <div class="delivery-time">
+            <span>1</span>
+            <span>5</span>
+          </div>
+          <p class="desc">
+            Chỉ 15 phút, khoảng thời gian để bạn tận hưởng cốc cà phê và truy
+            cập ReviewCompany để tìm hiểu về công ty mà bạn quan tâm hoặc đang
+            tìm việc.
+          </p>
+        </div>
+      </section>
+    </div>
+    <!-- footer -->
+    <%- include ('layout/footer') %>
+      <a href="#" class="scroll-on-top">
+        <i class="fas fa-arrow-up"></i>
+      </a>
+      <!-- Ion-icon -->
+      <!-- <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script> -->
+      <!-- Effect scroll-nav -->
+      <script>
+        var navbar = document.querySelector(".nav");
+
+        window.onscroll = function () {
+          // pageYOffset or scrollY
+          if (window.pageYOffset > 0) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        };
+      </script>
+
+      <!-- Ion-icon -->
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
+<!-- multer -->
+
+<!--  search(req, res, next){
+        Biography.find({ 
+            name: {$regex: '.*' + req.body.name + '.*', $options: 'i'}
+        })
+        .then(biographys => {
+            res.render('tieusu', { biographys })
+        })
+        .catch(next)
+    }
+<input
+              id="add-btn"
+              class="btn btn-primary"
+              type="submit"
+              value="Create"
+            /> -->

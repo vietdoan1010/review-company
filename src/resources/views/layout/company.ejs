@@ -1,0 +1,27 @@
+<div class="content_company-row">
+  <% home.forEach((entry)=> { %>
+    <div class="company-row--list">
+      <div class="list-desc">
+        <a class="list-desc--img" href="/detail/<%= entry.slug %>">
+          <img src="<%= entry.img %>" alt="Tên công ty">
+        </a>
+        <div class="list-desc--rate">
+          <i class="rate fa fa-star"></i>
+          <i class="rate fa fa-star"></i>
+          <i class="rate fa fa-star"></i>
+          <i class="rate fa fa-star"></i>
+          <i class="rate fa fa-star"></i>
+        </div>
+        <a class="list-desc--name" href="/detail/<%= entry.slug %>">
+          <%= entry.nameCompany %>
+        </a>
+        <div class="list-desc--type">
+          <%= entry.majo %>
+        </div>
+        <div class="list-desc--location">
+          <%= entry.address %>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+</div>

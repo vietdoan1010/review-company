@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 20px 0;
+    box-sizing: border-box;
+    background: rgb(207, 207, 207);
+  }
+
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .box-form {
+    padding: 1rem 2rem;
+    background-color: #0066b3;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+    border-radius: 6px;
+  }
+
+  h2 {
+    color: white;
+    font-weight: 700;
+  }
+
+  label {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+  }
+</style>
+
+<body>
+  <div class="container main">
+    <div class="col-3"></div>
+    <div class="col-6 box-form">
+      <a href="/admin/result" class="btn btn-primary">BACK</a>
+      <form action="/admin/update/<%= result._id %>" method="POST">
+        <h2 class="text-center">Update</h2>
+        <!-- <div class="form-group">
+                    <label>Mã kết quả: </label>
+                    <input class="form-control" type="text" name="id" placeholder="Mã lớp">
+                </div> -->
+        <div class="form-group">
+          <label>Tên công ty: </label>
+          <input class="form-control" type="text" value="<%= result.nameCompany %>" name="nameCompany" />
+        </div>
+        <div class="form-group">
+          <label>Địa chỉ: </label>
+          <input class="form-control" type="text" value="<%= result.address %>" name="address" />
+        </div>
+        <div class="form-group">
+          <label>Link Website: </label>
+          <input class="form-control" type="text" value="<%= result.linkWeb %>" name="linkWeb" />
+        </div>
+        <div class="form-group">
+          <label>Số lượng nhân viên: </label>
+          <input class="form-control" type="number" value="<%= result.staff %>" name="staff" />
+        </div>
+        <div class="form-group">
+          <label>Chuyên mục: </label>
+          <input class="form-control" type="text" value="<%= result.majo %>" name="majo" />
+        </div>
+        <div class="form-group">
+          <label>Hình ảnh Công ty: </label>
+          <input class="form-control" type="text" value="<%= result.imgCompany %>" name="imgCompany" />
+        </div>
+        <div class="form-group">
+          <label>Logo Công ty: </label>
+          <input class="form-control" type="text" value="<%= result.img %>" name="img" />
+        </div>
+        <div class="form-group">
+          <label>Slogan Công ty: </label>
+          <input class="form-control" type="text" value="<%= result.slogan %>" name="slogan" />
+        </div>
+        <div class="form-group">
+          <label>Giới thiệu công ty: </label>
+          <textarea class="form-control" name="decription">
+                <%= result.decription %>
+              </textarea>
+          <!-- <input
+              class="form-control"
+              type="text"
+              value="<%= result.decription %>"
+              name="decription"
+            /> -->
+        </div>
+        <div class="button">
+          <input id="add-btn" class="btn btn-primary" type="submit" value="Update" />
+        </div>
+      </form>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo Contact Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+        }
+
+        section {
+            background-image: url(https://cdn.pixabay.com/photo/2016/11/18/19/01/paris-1836415_960_720.jpg);
+            background-repeat: no-repeat;
+            max-width: 100%;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* background: #0f3959; */
+        }
+
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            /* background: #03a9f4; */
+        }
+
+        section .container {
+            position: relative;
+            min-width: 1100px;
+            min-height: 550px;
+            display: flex;
+            z-index: 100;
+        }
+
+        section .container .containerinfo {
+            position: absolute;
+            top: 40px;
+            width: 350px;
+            height: calc(100% - 80px);
+            background: #0f3959;
+            z-index: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        section .container .containerinfo h2 {
+            color: #fff;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        section .container .containerinfo li {
+            position: relative;
+            list-style: none;
+            display: flex;
+            margin: 20px 0;
+            cursor: pointer;
+            align-items: flex-start;
+        }
+
+        section .container .containerinfo li span {
+            color: #fff;
+            margin-left: 10px;
+            font-weight: 300;
+            opacity: 0.5;
+            font-size: 20px;
+        }
+
+        /*Hiệu Ứng Hover Cho Thẻ Li*/
+
+        section .container .containerinfo li:hover span {
+            opacity: 1;
+        }
+
+        section .container .containerinfo .sci {
+            position: relative;
+            display: flex;
+        }
+
+        section .container .containerinfo .sci li {
+            list-style: none;
+            margin-right: 15px;
+        }
+
+        section .container .containerinfo .sci li a {
+            text-decoration: none;
+            opacity: 0.5;
+            color: #fff;
+            font-size: 32px;
+        }
+
+
+        /*Hiệu Ứng Hover Icon*/
+
+        section .container .containerinfo .sci li:hover a {
+            opacity: 1;
+            color: #03a9f4;
+        }
+
+        section .container .containerForm {
+            position: absolute;
+            padding: 30px 50px;
+            background: #fff;
+            margin-left: 150px;
+            padding-left: 250px;
+            width: calc(100% - 150px);
+            height: 100%;
+            box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        section .container .containerForm h2 {
+            color: #03a9f4;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        section .container .containerForm .formBox {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding-top: 30px;
+        }
+
+        section .container .containerForm .formBox .inputBox {
+            position: relative;
+            margin: 0 0 35px 0;
+        }
+
+        section .container .containerForm .formBox .inputBox.w50 {
+            width: 47%;
+        }
+
+        section .container .containerForm .formBox .inputBox.w50 .formcontro {
+            width: 305px;
+            height: 35px;
+            color: rgb(5, 6, 15);
+        }
+
+        section .container .containerForm .formBox .inputBox.w100 {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        section .container .containerForm .formBox .inputBoxgui {
+            width: 100%;
+            height: 100px;
+            color: #03a9f4;
+            background-color: #333;
+        }
+
+        section .container .containerForm .formBox .inputBox input,
+        section .container .containerForm .formBox .inputBox textarea {
+            width: 100%;
+            padding: 5px 0;
+            resize: none;
+            font-size: 18px;
+            font-weight: 400;
+            color: #333;
+            border: none;
+            border-bottom: 1px solid #777;
+            outline: none;
+        }
+
+        section .container .containerForm .formBox .inputBox textarea {
+            min-height: 120px;
+        }
+
+        section .container .containerForm .formBox .inputBox input[type="submit"] {
+            position: relative;
+            margin-left: calc(100% - 150px);
+            cursor: pointer;
+            background: #0f3959;
+            color: #fff;
+            border: none;
+            max-width: 150px;
+            padding: 12px;
+            border-radius: 100rem;
+        }
+
+        section .container .containerForm .formBox .inputBox input[type="submit"]:hover {
+            background: #03a9f4;
+        }
+
+        section .container .containerForm .formBox .inputBox span {
+            position: absolute;
+            left: 0;
+            padding: 5px 0;
+            font-size: 16px;
+            font-weight: 400;
+            color: #333;
+            transition: 0.5s;
+            pointer-events: none;
+        }
+
+        section .container .containerForm .formBox .inputBox input:focus~span,
+        section .container .containerForm .formBox .inputBox textarea:focus~span,
+        section .container .containerForm .formBox .inputBox input:valid~span,
+        section .container .containerForm .formBox .inputBox textarea:valid~span {
+            transform: translateY(-20px);
+            font-size: 15px;
+            font-weight: 100;
+            letter-spacing: 1px;
+            color: #03a9f4
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="containerinfo">
+                <div>
+                    <h2> Thông Tin Liên Hệ</h2>
+                    <ul class="info">
+                        <li>
+                            <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                            <span>Nhóm 7</span>
+                        </li>
+                        <li>
+                            <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                            <span>XXX-XXX@gmail.com</span>
+                        </li>
+                        <li>
+                            <span><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+                            <span>0776-XXX-XXX</span>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="sci">
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="containerForm">
+                <form action="/" method="POST">
+                    <h2>
+                        <center>YÊU CẦU THÊM CÔNG TY</center>
+                    </h2>
+                    <div class="formBox">
+                        <div class="inputBox w50">
+                            <input type="text" name="nameCompany" required>
+                            <span>Tên công ty</span>
+                        </div>
+                        <div class="inputBox w50">
+                            <input type="text" name="address" required>
+                            <span>Địa chỉ</span>
+                        </div>
+                        <div class="inputBox w50">
+                            <input type="text" name="linkWeb" required>
+                            <span>Website</span>
+                        </div>
+                        <div class="inputBox w50">
+                            <input type="number" name="staff" required>
+                            <span>Số lượng nhân viên</span>
+                        </div>
+                        <!-- <div class="inputBox w50">
+
+                        <label>Chuyên mục</label>
+                        <br>
+                        <select name="box" id="cate" class="formcontro">
+                                <option value="1">Sugar Baby</option>
+                                <option value="2">Thiết kế đồ họa</option>
+                                <option value="3">Mạng máy tính</option>
+                                <option value="4">Kỹ thuật phần mềm</option>
+                                <option value="5">Sugar Daddy</option>
+                                <option value="6">Công nghệ thông tin</option>
+                            </select>
+
+                    </div> -->
+                        <div class="inputBox w50">
+                            <input type="text" name="majo" required>
+                            <span>Chuyên mục</span>
+                        </div>
+                        <div class="inputBox w50">
+                            <input type="text" name="imgCompany" required>
+                            <span>Hình ảnh công ty</span>
+                        </div>
+                        <div class="inputBox w50">
+                            <input type="text" name="img" required>
+                            <span>Logo công ty</span>
+                        </div>
+                        <div class="inputBox w50">
+                            <input type="text" name="slogan" required>
+                            <span>Slogan công ty</span>
+                        </div>
+                        <!-- <div class="inputBox w50">
+                        <label>Logo công ty</label>
+                        <div class="inputfile">
+                            <input type='text' name='userFile'>
+                        </div>
+
+                    </div> -->
+
+                        <div class="inputBox w100">
+                            <textarea name="decription" required></textarea>
+                            <span>Giới thiệu công ty</span>
+                        </div>
+                        <div class="inputBox w100">
+                            <input type="submit" value="Gửi">
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review Company</title>
+  <!-- <link
+                              rel="stylesheet"
+                              href="/src/public/fontawesome-free-5.15.4-web/css/all.min.css"
+                            /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #ee4d2d;
+      --white-color: #fff;
+      --black-color: #000;
+      --text-color: #333;
+      --border-color: #dbdbdb;
+      --star-gold-color: #ffce3e;
+
+      --header-height: 120px;
+      --navbar-height: 34px;
+      --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+    }
+
+    html {
+      /* font-size 1rem = 10px */
+      font-size: 62.5%;
+      /* line-height: 1.6rem; */
+      /* font-family: "Roboto", sans-serif; */
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Rubik", sans-serif;
+    }
+
+    /* Responsive */
+    .grid {
+      width: 1200px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .grid__full-width {
+      width: 100%;
+    }
+
+    .grid__row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -5px;
+      margin-right: -5px;
+    }
+
+    .grid__column-4 {
+      padding-left: 20px;
+      padding-right: 20px;
+      width: 33.3333%;
+    }
+
+    /* Header */
+    .container {
+      max-width: 1170px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background-image: url(https://www.reviewcompany.vn/public/media/home/img/sub_header_home.jpg);
+      background-repeat: no-repeat;
+      max-width: 100%;
+      background-position: center;
+      background-size: cover;
+    }
+
+    /* Nav main */
+    .nav {
+      position: fixed;
+      top: 0;
+      height: 50px;
+      width: 100%;
+      background: linear-gradient(to bottom, #03a9f4, #0003 20%, #0000);
+      transition: background 0.5s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+      background: rgb(0, 0, 0, 0.6);
+    }
+
+    .nav.scrolled {
+      height: 50px;
+      background: #03a9f4;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-logo {
+      height: 70%;
+    }
+
+    .nav-logo:hover {
+      opacity: 0.9;
+    }
+
+    .nav-logo img {
+      display: block;
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      margin: 0 15px;
+    }
+
+    .nav-list {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .nav-item {
+      position: relative;
+      list-style: none;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #fff;
+      margin-right: 40px;
+      overflow: hidden;
+      padding: 10px 0;
+    }
+
+    .nav-item::before {
+      content: "";
+      width: 50px;
+      position: absolute;
+      border-bottom: 2px solid white;
+      bottom: 0;
+      right: 350px;
+      transition: 0.6s all;
+    }
+
+    .nav-item:hover::before {
+      right: 0;
+    }
+
+    .nav-item:hover {
+      color: #03a9f4;
+    }
+
+    .scrolled .nav-item:hover {
+      color: white;
+    }
+
+    /* Nav search */
+    .nav-search {
+      height: 550px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .heading {
+      padding-top: 200px;
+      padding-bottom: 20px;
+      text-align: center;
+      font-size: 50px;
+      color: #fff;
+      font-weight: normal;
+      text-shadow: 0 3px 26px #03a9f4;
+    }
+
+    .search {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .header-search {
+      color: white;
+      background: #03a9f4;
+      font-size: 16px;
+      border: none;
+      margin-left: 10px;
+      padding: 20px;
+      cursor: pointer;
+      border-radius: 100rem;
+      transition: all 0.3s ease-in;
+      box-shadow: 0 6px 12px #000;
+    }
+
+    .header-search:hover {
+      color: #03a9f4;
+      background: white;
+    }
+
+    .search-input {
+      width: 66%;
+      height: 60px;
+      /* color: #03a9f4; */
+      border-color: #000;
+      box-shadow: 0 6px 12px #000;
+      outline: none;
+      border-radius: 100rem;
+      font-size: 24px;
+      padding: 0 20px;
+      border: none;
+      opacity: 0.7;
+    }
+
+    .search-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      width: 60px;
+      height: 56px;
+      border: 2px solid #fff;
+      border-radius: 40px;
+      margin-left: 5px;
+      color: #fff;
+    }
+
+    .search-icon:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* Section Introduce */
+    .introduce {
+      background-color: rgba(207, 207, 207, 0.513);
+    }
+
+    .introduce-heading {
+      padding: 50px 0;
+      text-align: center;
+      font-size: 50px;
+      font-weight: 400;
+      color: white;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .introduce-tutorial {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .box {
+      background-color: rgb(245, 228, 228);
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .box img {
+      display: block;
+      width: 100px;
+      margin: auto;
+      padding-bottom: 30px;
+    }
+
+    .box h4 {
+      font-size: 20px;
+      text-align: center;
+      padding-bottom: 8px;
+    }
+
+    .box p {
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .delivery-time {
+      width: 164px;
+      margin: 50px auto auto;
+    }
+
+    .delivery-time span {
+      background: url(https://www.reviewcompany.vn/public/media/home/img/time_panel.svg) no-repeat;
+      display: inline-block;
+      width: 80px;
+      height: 120px;
+      font-size: 72px;
+      line-height: 120px;
+      text-shadow: 1px 1px 2px rgb(255 255 255);
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .desc {
+      text-align: center;
+      font-size: 20px;
+      padding: 20px 300px;
+      padding-bottom: 50px;
+    }
+
+    /* --END Header--*/
+    /* --Body-- */
+    * {
+      font-family: "Open Sans", sans-serif;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      /* line-height: 22px; */
+      /* color: #6f7579; */
+    }
+
+    .page-content-left,
+    .widget ul {
+      list-style: none;
+    }
+
+    a {
+      /* font-size: 20px; */
+      color: #3b4348;
+      text-decoration: none;
+    }
+
+    .row {
+      display: flex;
+    }
+
+    .rate {
+      color: #d1d1d1;
+    }
+
+    .icon {
+      padding-right: 10px;
+      font-size: 16px;
+      color: #d1d1d1;
+    }
+
+    .page {
+      background-color: #e2e1e2;
+      padding: 100px 0;
+    }
+
+    .page__container {
+      width: 100%;
+      padding: 0 100px;
+    }
+
+    .page-content {
+      width: 60%;
+    }
+
+    .title {
+      color: #a1a1a1;
+      font-weight: normal;
+      font-size: 25px;
+      margin: 0px 0px 20px 0px;
+    }
+
+    .page-content-left {
+      width: 100%;
+      border-radius: 3px;
+      background: #fff;
+      box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 5%);
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    .articles {
+      list-style: none;
+    }
+
+    .articles li p {
+      margin-top: 10px;
+    }
+
+    .article-entry {
+      position: relative;
+    }
+
+    .logo-company {
+      width: 10%;
+      float: left;
+    }
+
+    .logo-company img {
+      width: 100%;
+      border: 1px solid #f0f0f0;
+    }
+
+    .company-info {
+      font-size: 18px;
+      margin-left: 99px;
+      margin-bottom: 20px;
+    }
+
+    .company-info a:hover {
+      color: #03a9f4;
+    }
+
+    .company-review {
+      display: flex;
+      border-bottom: solid 1px #f2f2f2;
+    }
+
+    .like-count {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      color: #a0a0a0;
+      line-height: 18px;
+      padding: 8px 15px;
+      border: solid 1px #f2f2f2;
+      border-bottom: none;
+      font-size: 15px;
+    }
+
+    .page-sidebar {
+      width: 40%;
+      font-size: 16px;
+      margin-left: 30px;
+    }
+
+    .widget {
+      border-radius: 3px;
+      box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 5%);
+      background: #fff;
+      padding: 30px;
+    }
+
+    .widget>ul {
+      margin-left: 0;
+    }
+
+    .widget ul li {
+      list-style: none;
+      padding: 20px 8px 8px 5px;
+      border-bottom: 1px solid #f2f2f2;
+    }
+
+    .widget a:hover {
+      color: #03a9f4;
+    }
+
+    /* --END Body-- */
+    /* --Footer-- */
+    .footer {
+      padding-top: 16px;
+      margin-top: 32px;
+      background: #414b53;
+    }
+
+    .footer__content {
+      font-size: 1.4rem;
+      color: #8d9288;
+      margin-bottom: 1rem;
+    }
+
+    .footer__content a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer__heading {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 2rem;
+    }
+
+    .footer-list {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .footer-item {
+      position: relative;
+    }
+
+    .footer-item:first-child::before {
+      display: none;
+    }
+
+    .footer-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-top: 1px solid #e1e1e1;
+      opacity: 0.1;
+    }
+
+    .footer-item__link {
+      display: block;
+      font-size: 1.4rem;
+      text-decoration: none;
+      color: white;
+      padding: 12px 0;
+    }
+
+    .footer-item__link i {
+      margin: 0 6px 0 12px;
+      zoom: 0.8;
+    }
+
+    .footer__content a:hover,
+    .footer-item__link:hover {
+      color: #03a9f4;
+    }
+
+    .footer-item__icon {
+      font-size: 1.6rem;
+      margin-right: 8px;
+    }
+
+    .footer__bottom {
+      padding: 8px;
+      background-color: #353c41;
+      margin-top: 60px;
+    }
+
+    .footer__text {
+      margin: 0;
+      font-size: 1.4rem;
+      color: #737373;
+      text-align: center;
+    }
+
+    /* Detail */
+
+    .content {
+      width: 100%;
+      height: auto;
+      float: left;
+      background-color: #f2f2f1;
+      padding: 30px 90px;
+    }
+
+    .content_detail {
+      width: 60%;
+      height: 0 auto;
+      float: left;
+      /* background-color: #fff; */
+    }
+
+
+    .block-company-info {
+      box-shadow: 0 1px 10px 0 rgba(133, 130, 130, 0.5);
+      border-radius: 3px;
+    }
+
+    .cover-inner {
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+    }
+
+    .cover-inner img {
+      width: 100%;
+      height: auto;
+    }
+
+    .conpany-info-content {
+      width: 100%;
+      height: auto;
+    }
+
+    .info-row {
+      display: flex;
+      padding: 10px;
+      background-color: #fff;
+    }
+
+    .info-logo {
+      width: 110px;
+      height: 100px;
+      border: 1px solid #ededed;
+      margin-right: 30px;
+    }
+
+    .info-logo img {
+      width: 100%;
+      height: auto;
+      padding: 5px;
+      border-radius: 3px;
+    }
+
+    .info-name {
+      font-size: 18px;
+      color: #03a9f4;
+      font-weight: 600;
+    }
+
+    .info-web {
+      margin: 5px 0;
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    .info-web a {
+      display: block;
+      color: #73cdf7;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .info-web a:hover {
+      /* color: rgb(243, 87, 87); */
+      text-shadow: 0 0 6px rgba(3, 169, 244, 0.6);
+      font-style: normal;
+      transform: translateX(4px);
+    }
+
+    .info-slogan {
+      font-size: 1.6rem;
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    /* Content_Review */
+    .content_review {
+      width: 100%;
+      min-height: 20px;
+      margin-top: 30px;
+      box-shadow: 0 1px 5px 0 rgba(133, 130, 130, 0.5);
+      border-radius: 3px;
+      background-color: #fff;
+    }
+
+    .review-heading {
+      width: 100%;
+      height: 50px;
+      background-color: #03a9f4;
+      color: #fff;
+      text-align: center;
+      padding-top: 15px;
+      font-size: 20px;
+    }
+
+    .review-info {
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .review-info--content {
+      width: 100%;
+      height: 450px;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      padding: 20px;
+      overflow: auto;
+    }
+
+    .content_comment {
+      height: auto;
+      width: 100%;
+    }
+
+    .content-heading {
+      width: 100%;
+      height: 100px;
+      padding: 10px 20px;
+      background-color: #03a9f4;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      border-radius: 3px;
+      box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .open-modal-btn {
+      background-color: #fff;
+      margin-left: 10px;
+      padding: 10px;
+      border-radius: 50px;
+      border: none;
+      font-weight: 600;
+      font-size: 17px;
+      transition: 0.25s;
+      color: #03a9f4;
+      cursor: pointer;
+      transition: all 0.4s ease-in;
+    }
+
+    .open-modal-btn:hover {
+      background-color: rgb(37, 221, 37);
+      color: #fff;
+    }
+
+    .comment-list {
+      padding: 20px;
+      display: flex;
+      height: 300px;
+      margin: 20px 0;
+      box-shadow: 0 1px 5px 0 rgba(133, 130, 130, 0.5);
+      background-color: #fff;
+      border-radius: 3px;
+    }
+
+    .comment-list--img {
+      width: 150px;
+      height: 100%;
+    }
+
+    .comment-list--img img {
+      width: 100%;
+      height: auto;
+      /* padding-right: 30px; */
+      border-radius: 100rem;
+    }
+
+
+
+    .list-info--name {
+      font-style: italic;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    /* Content-List */
+
+    .rate {
+      color: rgb(248, 174, 35);
+    }
+
+    .content_list {
+      width: 35%;
+      height: auto;
+      /* float: right; */
+      margin-left: auto;
+      padding: 30px;
+      border-radius: 3px;
+    }
+
+    .content_list--heading {
+      color: #03a9f4;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .comment-list-detail {
+      font-size: 1.6rem;
+      display: block;
+      overflow: auto;
+      background-color: rgb(240, 231, 231);
+      margin-left: 20px;
+      width: 100%;
+      border-radius: 3px;
+      padding: 20px;
+      border-radius: 3px;
+    }
+
+    .company-row--list {
+      width: 100%;
+      height: auto;
+      padding: 15px;
+      border: 1px solid #d3d3d3;
+      border-radius: 3px;
+      background-color: #fff;
+      margin-bottom: 20px;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .company-row--list:hover {
+      box-shadow: 0 1px 10px 0 rgba(133, 130, 130, 0.5);
+      transform: translateY(-4px);
+    }
+
+    .list-desc {
+      padding-left: 130px;
+      position: relative;
+    }
+
+
+    .list-desc--img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 110px;
+      height: 110px;
+      border: 1px solid #ededed;
+      padding: 5px;
+    }
+
+    .list-desc--img img {
+      width: 98px;
+      height: auto;
+
+    }
+
+    .list-desc--rate {
+      color: #ccc;
+      display: flex;
+    }
+
+    .list-desc--rate i {
+      margin-right: 3px;
+    }
+
+    .list-desc--name {
+      white-space: nowrap;
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #333;
+      margin: 7px 0;
+      font-weight: bold;
+      font-size: 18px;
+      transition: all 0.2s ease-in;
+    }
+
+    .list-desc--name:hover {
+      color: #03a9f4;
+    }
+
+    .list-desc--type {
+      font-size: 15px;
+      font-style: italic;
+      color: #777;
+      margin-top: 7px;
+    }
+
+    .list-desc--location {
+      height: 30px;
+      margin-top: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: 1000px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .modal__inner {
+      width: 650px;
+      background-color: #fff;
+      border-radius: 5px;
+      overflow: hidden;
+      animation: showModal linear 0.2s;
+      position: relative;
+      margin: 60px auto;
+    }
+
+    @keyframes showModal {
+      from {
+        top: -200px;
+        opacity: 0;
+      }
+
+      to {
+        top: 0;
+        opacity: 1;
+      }
+    }
+
+    .modal__header {
+      background-color: #03a9f4;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px;
+      font-size: 17px;
+    }
+
+    .modal__body {
+      padding: 15px;
+    }
+
+    .modal__body label {
+      font-weight: 500;
+      font-size: 17px;
+    }
+
+    .modal__body input {
+      margin: 5px 0 10px 0;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #03a9f4;
+      height: 35px;
+      padding: 10px;
+      outline: none;
+    }
+
+    .modal__body textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #03a9f4;
+      outline: none;
+    }
+
+
+
+    .modal__footer {
+      padding: 15px;
+      text-align: right;
+    }
+
+    .modal__footer button {
+      outline: none;
+      border: none;
+      padding: 10px 20px;
+      background-color: #03a9f4;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .modal__footer button:hover {
+      background-color: white;
+      color: #03a9f4;
+      border: 1px solid #03a9f4;
+    }
+
+    .modal__header i {
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .open-modal-btn~.hide {
+      display: block;
+    }
+
+    /* --Scroll-- */
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #03a9f4;
+      /* box-shadow: 0 12px 16px #03a9f4; */
+      border-radius: 100rem;
+    }
+  </style>
+</head>
+
+<body>
+  <%- include ('layout/header') %>
+
+    <!-- body  -->
+    <div class="page">
+      <!-- Content -->
+      <div class="page__container">
+        <div class="row">
+          <div class="content_detail">
+            <div class="block-company-info">
+              <div class="block-content">
+                <div class="cover-wrapper">
+                  <div class="cover-inner">
+                    <img src="<%= detail.imgCompany %>" alt="Ảnh bìa" title="Ảnh công ty">
+                  </div>
+                </div>
+                <div class="conpany-info-content">
+                  <div class="info-row">
+                    <div class="info-logo">
+                      <img src="<%= detail.img %>" alt="" title="<%= detail.nameCompany %>">
+                    </div>
+                    <div class="info-link">
+                      <div class="info-name">
+                        <%= detail.nameCompany %>
+                      </div>
+                      <div class="info-web">
+                        <a href="<%= detail.linkWeb %>" target="_blank">
+                          Link website: <%= detail.linkWeb %>
+                        </a>
+                      </div>
+                      <div class="info-slogan">
+                        <%= detail.slogan %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="content_review">
+              <div class="review-heading">
+                <%= detail.nameCompany %> Xin chào các Bạn
+              </div>
+              <div class="review-info">
+                <div class="review-info--content">
+                  <%= detail.decription %>
+                </div>
+              </div>
+            </div>
+
+            <div class="content-heading">
+              <span>Bạn có nhận xét gì về <%= detail.nameCompany %> chúng tôi</span>
+              <button class="open-modal-btn">
+                <i class="fas fa-pencil-alt"></i>
+                Viết review
+              </button>
+            </div>
+
+            <div class="content_comment">
+
+              <div class="comment-list">
+                <div class="comment-list--img">
+                  <img src="https://file.vfo.vn/hinh/2014/5/anh-dai-dien-facebook-14.jpg" alt="">
+                  <div class="list-info--name">NguoiAnDanh</div>
+                </div>
+                <div class="comment-list-detail">
+                  <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut totam natus tempora,
+                    mollitia quis, quo voluptas explicabo recusandae magnam esse consectetur quod facilis
+                    sit sed! Accusamus animi veritatis eos architecto modi dolorum ipsam debitis
+                    consequuntur tenetur quod maiores magni amet deserunt illo sit optio ipsum nobis
+                    explicabo quos, ab omnis eius distinctio laboriosam soluta? A voluptatibus, nesciunt
+                    incidunt commodi fuga natus pariatur facere sunt esse, sed recusandae laboriosam
+                    delectus illum optio, debitis adipisci id amet officiis maxime eveniet quis ipsum totam
+                    fugiat suscipit. Fugit, maxime, nobis veritatis distinctio aut dolores atque dolore
+                    maiores perferendis obcaecati facilis pariatur deserunt iure eligendi incidunt placeat?
+                    Accusamus totam dolor laboriosam nisi tempore aliquid temporibus reprehenderit
+                    voluptatem atque voluptate nobis placeat nostrum sint laborum eos quos veniam, quam,
+                    asperiores commodi? Iste iusto enim illo quas commodi tempore repellat quasi aut
+                    assumenda, cumque quisquam maiores obcaecati porro minus esse perferendis. Sequi
+                    voluptas obcaecati quae perferendis aspernatur necessitatibus quod asperiores
+                    temporibus. Voluptatum optio aperiam ex officiis doloribus in, suscipit nihil
+                    perspiciatis veniam dolorem a eaque ducimus, quidem autem sint consequatur. Ab modi
+                    aspernatur suscipit sed beatae adipisci, nulla, dicta laborum, sit veritatis mollitia.
+                    Unde similique labore modi totam natus, sed recusandae. Similique temporibus cupiditate
+                    dicta eos perferendis?</span>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="content_list">
+            <h2 class="content_list--heading">Có thể bạn sẽ quan tâm</h2>
+
+            <!-- <div class="company-row--list"> -->
+            <!-- <div class="list-desc">
+                <a class="list-desc--img" href="">
+                  <img src="https://topcongty.net/upload/companies/savis-vietnam-1817295727.jpg" alt="Tên công ty">
+                </a>
+                <div class="list-desc--rate">
+                  <i class="rate fa fa-star"></i>
+                  <i class="rate fa fa-star"></i>
+                  <i class="rate fa fa-star"></i>
+                  <i class="rate fa fa-star"></i>
+                  <i class="rate fa fa-star"></i>
+                </div>
+                <a class="list-desc--name" href="">Công ty</a>
+                <div class="list-desc--type">IT</div>
+                <div class="list-desc--location">Ohlla</div>
+              </div> -->
+            <% nameCompany.forEach((entry)=> { %>
+              <div class="company-row--list">
+                <div class="list-desc">
+                  <a class="list-desc--img" href="/detail/<%= entry.slug %>">
+                    <img src="<%= entry.img %>" alt="Tên công ty">
+                  </a>
+                  <div class="list-desc--rate">
+                    <i class="rate fa fa-star"></i>
+                    <i class="rate fa fa-star"></i>
+                    <i class="rate fa fa-star"></i>
+                    <i class="rate fa fa-star"></i>
+                    <i class="rate fa fa-star"></i>
+                  </div>
+                  <a class="list-desc--name" href="/detail/<%= entry.slug %>">
+                    <%= entry.nameCompany %>
+                  </a>
+                  <div class="list-desc--type">
+                    <%= entry.majo %>
+                  </div>
+                  <div class="list-desc--location">
+                    <%= entry.address %>
+                  </div>
+                </div>
+              </div>
+              <% }) %>
+
+                <!-- </div> -->
+
+          </div>
+
+          <!-- Modal -->
+          <div class="modal hide">
+            <div class="modal__inner">
+              <div class="modal__header">
+                <p>Đánh Giá</p>
+                <i class="fas fa-times"></i>
+              </div>
+              <div class="modal__body">
+                <label for="">Họ tên</label>
+                <input type="text" placeholder="Nhập tên nếu">
+                <label for="">Đánh Giá</label>
+                <textarea name="" id="" cols="30" rows="10" placeholder="Nhận xét của bạn về công ty"></textarea>
+              </div>
+              <div class="modal__footer">
+                <button>Thoát</button>
+                <button>Đăng bài</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    <%- include ('layout/footer') %>
+
+      <script>
+        var navbar = document.querySelector(".nav");
+
+        window.onscroll = function () {
+          // pageYOffset or scrollY
+          if (window.pageYOffset > 0) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        };
+      </script>
+
+      <!-- Show box write comment -->
+      <script>
+        const modal = document.querySelector('.modal')
+        const openModalBtn = document.querySelector('.open-modal-btn')
+        const iconCloseModal = document.querySelector('.modal__header i')
+        const buttonCloseModal = document.querySelector('.modal__footer button')
+
+        function toggleModal() {
+          modal.classList.toggle('hide')
+        }
+
+        openModalBtn.addEventListener('click', toggleModal)
+        iconCloseModal.addEventListener('click', toggleModal)
+        buttonCloseModal.addEventListener('click', toggleModal)
+
+        modal.addEventListener('click', (e) => {
+          if (e.target == e.currentTarget) toggleModal()
+        })
+
+      </script>
+
+      <!-- Ion-icon -->
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review Company</title>
+  <!-- <link
+      rel="stylesheet"
+      href="/src/public/fontawesome-free-5.15.4-web/css/all.min.css"
+    /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #ee4d2d;
+      --white-color: #fff;
+      --black-color: #000;
+      --text-color: #333;
+      --border-color: #dbdbdb;
+      --star-gold-color: #ffce3e;
+
+      --header-height: 120px;
+      --navbar-height: 34px;
+      --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+    }
+
+    html {
+      /* font-size 1rem = 10px */
+      font-size: 62.5%;
+      /* line-height: 1.6rem; */
+      /* font-family: "Roboto", sans-serif; */
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Rubik", sans-serif;
+    }
+
+    /* Responsive */
+    .grid {
+      width: 1200px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .grid__full-width {
+      width: 100%;
+    }
+
+    .grid__row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -5px;
+      margin-right: -5px;
+    }
+
+    .grid__column-4 {
+      padding-left: 20px;
+      padding-right: 20px;
+      width: 33.3333%;
+    }
+
+    /* Header */
+    .container {
+      max-width: 1170px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background-image: url(https://www.reviewcompany.vn/public/media/home/img/sub_header_home.jpg);
+      background-repeat: no-repeat;
+      max-width: 100%;
+      background-position: center;
+      background-size: cover;
+    }
+
+    /* Nav main */
+    .nav {
+      position: fixed;
+      top: 0;
+      height: 50px;
+      width: 100%;
+      background: linear-gradient(to bottom, #03a9f4, #0003 20%, #0000);
+      transition: background 0.5s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+      background: rgb(0, 0, 0, 0.6);
+    }
+
+    .nav.scrolled {
+      height: 50px;
+      background: #03a9f4;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-logo {
+      height: 70%;
+    }
+
+    .nav-logo:hover {
+      opacity: 0.9;
+    }
+
+    .nav-logo img {
+      display: block;
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      margin: 0 15px;
+    }
+
+    .nav-list {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .nav-item {
+      position: relative;
+      list-style: none;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #fff;
+      margin-right: 40px;
+      overflow: hidden;
+      padding: 10px 0;
+    }
+
+    .nav-item::before {
+      content: "";
+      width: 50px;
+      position: absolute;
+      border-bottom: 2px solid white;
+      bottom: 0;
+      right: 350px;
+      transition: 0.6s all;
+    }
+
+    .nav-item:hover::before {
+      right: 0;
+    }
+
+    .nav-item:hover {
+      color: #03a9f4;
+    }
+
+    .scrolled .nav-item:hover {
+      color: white;
+    }
+
+    /* Nav search */
+    .nav-search {
+      height: 550px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .heading {
+      padding-top: 200px;
+      padding-bottom: 20px;
+      text-align: center;
+      font-size: 50px;
+      color: #fff;
+      font-weight: normal;
+      text-shadow: 0 3px 26px #03a9f4;
+    }
+
+    .search {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    .header-search {
+      color: white;
+      background: #03a9f4;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      margin-left: 10px;
+      padding: 18px 20px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.3s ease-in;
+    }
+
+    .header-search:hover {
+      color: #03a9f4;
+      background: white;
+      border: 1px solid #03a9f4;
+    }
+
+    .search-input {
+      width: 44%;
+      height: 54px;
+      /* color: #03a9f4; */
+      border-color: #000;
+      outline: 1px solid #03a9f4;
+      font-size: 24px;
+      padding: 0 20px;
+      border: none;
+      border-radius: 3px;
+      opacity: 0.6;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .search-input:focus {
+      box-shadow: 0 0 20px rgba(3, 169, 244, 1);
+      /* text-shadow: 0 0 20px rgba(3, 169, 244, 1); */
+      color: #03a9f4;
+    }
+
+    .search-input::placeholder {
+      color: #03a9f4;
+      text-shadow: 0 0 6px rgba(3, 169, 244, 1);
+    }
+
+    .search-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      width: 60px;
+      height: 56px;
+      border: 2px solid #fff;
+      border-radius: 40px;
+      margin-left: 5px;
+      color: #fff;
+    }
+
+    .search-icon:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+
+
+    /* --END Header--*/
+    /* --Body-- */
+    * {
+      font-family: "Open Sans", sans-serif;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      /* line-height: 22px; */
+      /* color: #6f7579; */
+    }
+
+    a {
+      /* font-size: 20px; */
+      color: #3b4348;
+      text-decoration: none;
+    }
+
+    .row {
+      display: flex;
+    }
+
+    .page {
+      background-color: white;
+      padding: 60px 0;
+    }
+
+    .page__container {
+      width: 100%;
+      /* padding: 0 100px; */
+    }
+
+    .page-content {
+      width: 100%;
+    }
+
+    /* --END Body-- */
+    /* --Footer-- */
+    .footer {
+      padding-top: 16px;
+      margin-top: 32px;
+      background: #414b53;
+    }
+
+    .footer__content {
+      font-size: 1.4rem;
+      color: #8d9288;
+      margin-bottom: 1rem;
+    }
+
+    .footer__content a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer__heading {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 2rem;
+    }
+
+    .footer-list {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .footer-item {
+      position: relative;
+    }
+
+    .footer-item:first-child::before {
+      display: none;
+    }
+
+    .footer-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-top: 1px solid #e1e1e1;
+      opacity: 0.1;
+    }
+
+    .footer-item__link {
+      display: block;
+      font-size: 1.4rem;
+      text-decoration: none;
+      color: white;
+      padding: 12px 0;
+    }
+
+    .footer-item__link i {
+      margin: 0 6px 0 12px;
+      zoom: 0.8;
+    }
+
+    .footer__content a:hover,
+    .footer-item__link:hover {
+      color: #03a9f4;
+    }
+
+    .footer-item__icon {
+      font-size: 1.6rem;
+      margin-right: 8px;
+    }
+
+    .footer__bottom {
+      padding: 8px;
+      background-color: #353c41;
+      margin-top: 60px;
+    }
+
+    .footer__text {
+      margin: 0;
+      font-size: 1.4rem;
+      color: #737373;
+      text-align: center;
+    }
+
+    .rate {
+      color: rgb(248, 174, 35);
+    }
+
+    .content_heading {
+      text-align: center;
+      /* margin-top: 30px; */
+      color: #03a9f4;
+      /* font-weight: normal; */
+      font-size: 25px;
+    }
+
+    .content_company {
+      padding-top: 30px;
+    }
+
+    .content_company-row {
+      width: 100%;
+      height: auto;
+      padding: 0 100px;
+    }
+
+    .company-row--list {
+      float: left;
+      width: 47%;
+      margin: 10px 15px;
+      height: auto;
+      padding: 15px;
+      border: 1px solid #d3d3d3;
+      border-radius: 3px;
+      transition: all 0.2s ease-in;
+    }
+
+    .company-row--list:hover {
+      box-shadow: 0 1px 10px 0 rgba(133, 130, 130, 0.5);
+      transform: translateY(-4px);
+    }
+
+    .list-desc {
+      padding-left: 130px;
+      position: relative;
+    }
+
+
+    .list-desc--img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 110px;
+      height: 110px;
+      border: 1px solid #ededed;
+      padding: 5px;
+    }
+
+    .list-desc--img img {
+      width: 98px;
+      height: auto;
+
+    }
+
+    .list-desc--rate {
+      color: #ccc;
+      display: flex;
+    }
+
+    .list-desc--rate i {
+      margin-right: 3px;
+    }
+
+    .list-desc--name {
+      white-space: nowrap;
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #333;
+      margin: 7px 0;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .list-desc--name:hover {
+      color: #03a9f4;
+    }
+
+    .list-desc--type {
+      font-size: 15px;
+      font-style: italic;
+      color: #777;
+      margin-top: 7px;
+    }
+
+    .list-desc--location {
+      height: 30px;
+      margin-top: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-logo">
+        <a href="/"><img src="https://www.reviewcompany.vn/public/media//home/img/logo.png" alt="" /></a>
+      </div>
+
+      <ul class="nav-list">
+        <a class="nav-item" href="/">
+          <li>Trang chủ</li>
+        </a>
+        <a class="nav-item" href="#">
+          <li>Trợ giúp</li>
+        </a>
+        <a class="nav-item" href="/addCompany">
+          <li>Thêm công ty</li>
+        </a>
+        <a class="nav-item" href="/login">
+          <li>Đăng nhập</li>
+        </a>
+      </ul>
+    </nav>
+
+  </header>
+  <!-- body  -->
+  <div class="page">
+    <!-- Content -->
+    <div class="page__container">
+      <div class="row">
+        <div class="page-content">
+          <form action="/search" method="POST">
+            <div class="search">
+              <input class="search-input" type="search" name="search" placeholder="Nhập tên công ty..." required />
+              <!-- <a href="#">
+              <div class="search-icon">
+                <ion-icon name="search-outline"></ion-icon>
+              </div>
+            </a> -->
+              <input class="header-search" type="submit" value="Tìm kiếm" />
+            </div>
+          </form>
+          <h2 class="content_heading">SEARCH</h2>
+          <div class="content_company">
+            <div class="content_company-row">
+              <% search.forEach((entry)=> { %>
+                <div class="company-row--list">
+                  <div class="list-desc">
+                    <a class="list-desc--img" href="/detail/<%= entry.slug %>">
+                      <img src="<%= entry.img %>" alt="Tên công ty">
+                    </a>
+                    <div class="list-desc--rate">
+                      <i class="rate fa fa-star"></i>
+                      <i class="rate fa fa-star"></i>
+                      <i class="rate fa fa-star"></i>
+                      <i class="rate fa fa-star"></i>
+                      <i class="rate fa fa-star"></i>
+                    </div>
+                    <a class="list-desc--name" href="/detail/<%= entry.slug %>">
+                      <%= entry.nameCompany %>
+                    </a>
+                    <div class="list-desc--type">
+                      <%= entry.majo %>
+                    </div>
+                    <div class="list-desc--location">
+                      <%= entry.address %>
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- footer -->
+
+  <!-- Ion-icon -->
+  <!-- <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script> -->
+  <!-- Effect scroll-nav -->
+  <script>
+    var navbar = document.querySelector(".nav");
+
+    window.onscroll = function () {
+      // pageYOffset or scrollY
+      if (window.pageYOffset > 0) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    };
+  </script>
+
+  <!-- Ion-icon -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
